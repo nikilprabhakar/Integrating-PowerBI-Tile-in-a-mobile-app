@@ -1,0 +1,9 @@
+/* Empty. Add your own CSS if you like */
+.col{
+ font-size:13px ;
+ 
+}
+
+.has-error {
+    border-bottom: 3px solid #F08B7C;
+}

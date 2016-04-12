@@ -1,0 +1,27 @@
+<ion-view view-title="Pricing">
+	<ion-nav-buttons side="primary">
+		<button class="button" ng-click="updatePrice()">
+	        Update Price
+	      </button>
+    </ion-nav-buttons>
+  <ion-content class="padding-vertical">
+   
+      <div class="item item-divider"><i class="icon ion-asterisk">indicates Ingredients current price</i></div>
+       <ion-list>
+        <ion-item class="item-remove-animate " ng-repeat="ingredient in searchresults track by $index">
+         <div class="row">
+            <div class="col item-text-wrap">{{ingredient.IngredientDescription}}</div>
+            <div class="col"><i class="icon ion-asterisk">{{ingredient.Price_Change}}</i></div>
+            <div class="col">
+            	<label class="item item-input">
+            		<input type="text" placeholder="Price" size="5" ng-model="data[ingredient.IngredientUID]"></div>
+            	</label>
+          </div> 
+        
+        </ion-item>
+      </ion-list>
+               
+      </div>
+   
+  </ion-content>
+</ion-view>

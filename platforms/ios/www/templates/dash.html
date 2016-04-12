@@ -1,0 +1,24 @@
+<ion-view view-title="Ingredient Pricing">
+  <ion-content class="padding">
+  <div>For best results, narrow down your search by entering values on all three fields</div>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Material Category starts with" ng-model="data.material_category">
+        </label>
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Material Group starts with" ng-model="data.material_group">
+        </label>
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Ingredient starts with" ng-model="data.ingredient">
+        </label>
+         <button class="button button-block button-calm" ng-click="getProducts()">Search</button>
+      </div>
+  <div class="has-error">{{message}}</div>
+  </ion-content>
+</ion-view>
+
+
+
