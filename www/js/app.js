@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('pricingdemo', ['ionic', 'pricingdemo.controllers', 'pricingdemo.services', 'ngResource','ODataResources','ngCordovaOauth','ngSanitize'])
+angular.module('powerbidemo', ['ionic', 'powerbidemo.controllers', 'powerbidemo.services', 'ngResource','ODataResources','ngCordovaOauth','ngSanitize'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,12 +38,6 @@ angular.module('pricingdemo', ['ionic', 'pricingdemo.controllers', 'pricingdemo.
 
   // Each tab has its own nav history stack:
 
-  .state('dash', {
-    url: '/dash',
-    templateUrl: 'templates/dash.html',
-    controller: 'DashCtrl'
-    
-  })
 
   .state('login', {
     url: '/login',
@@ -59,20 +53,7 @@ angular.module('pricingdemo', ['ionic', 'pricingdemo.controllers', 'pricingdemo.
     
   })
 
-.state('detail', {
-    url: 'x`/detail/:productId',
-    templateUrl: 'templates/detail.html'
-      
-    
-  })
 
-.state('searchResults', {
-    url: '/searchResults',
-    templateUrl: 'templates/detail.html',
-    controller: 'SearchResultsCtrl'
-      
-    
-  })
   
 
 

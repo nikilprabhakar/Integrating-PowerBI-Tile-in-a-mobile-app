@@ -1,8 +1,6 @@
-angular.module('powerBIDemo.services', [])
+angular.module('powerbidemo.services', [])
 
-
-
-  .factory('AzureService', function($resource,IngredientService){
+.factory('AzureService', function($resource,YourService){
     return {
       getDashboard:function()
       {
@@ -13,7 +11,7 @@ angular.module('powerBIDemo.services', [])
               url:"https://api.powerbi.com/beta/myorg/dashboards?$filter=startswith(displayName,'YourDashboardName')",
               withCredentials:true,
               headers:{
-                  Authorization: 'Bearer ' +IngredientService.getAzureADToken()
+                  Authorization: 'Bearer ' +YourService.getAzureADToken()
               }
           }
         })
@@ -33,9 +31,38 @@ angular.module('powerBIDemo.services', [])
         })
       }
     }
-  }) 
+  })
 
 
+.factory('YourService', function() {
+    var searchResults=[];
+    var ad_access_token='';
+    var dashId='';
+    return {
+
+      getSearchResults: function() {
+        console.log("in services");
+        return searchResults;
+      },
+      setSearchResults:function(value){
+        searchResults = value;
+      },
+      setAzureADToken:function(value){
+        ad_access_token = value;
+      },
+      getAzureADToken:function(){
+        return ad_access_token;
+      },
+      setDashId:function(id){
+        dashId=id;
+      },
+      getDashId:function(){
+        return dashId;
+      }
+
+
+    }
+  })
 
 
 
@@ -71,8 +98,3 @@ angular.module('powerBIDemo.services', [])
         }
     }
 });
-
-
-
-
-  

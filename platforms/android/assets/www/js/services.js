@@ -1,8 +1,6 @@
-angular.module('pricingdemo.services', [])
+angular.module('powerbidemo.services', [])
 
-
-
-  .factory('AzureService', function($resource,IngredientService){
+.factory('AzureService', function($resource,YourService){
     return {
       getDashboard:function()
       {
@@ -10,10 +8,10 @@ angular.module('pricingdemo.services', [])
         {
           'get' : {
               method:'GET',
-              url:"https://api.powerbi.com/beta/myorg/dashboards?$filter=startswith(displayName,'Pricing')",
+              url:"https://api.powerbi.com/beta/myorg/dashboards?$filter=startswith(displayName,'YourDashboardName')",
               withCredentials:true,
               headers:{
-                  Authorization: 'Bearer ' +IngredientService.getAzureADToken()
+                  Authorization: 'Bearer ' +YourService.getAzureADToken()
               }
           }
         })
@@ -24,42 +22,26 @@ angular.module('pricingdemo.services', [])
         {
           'get' : {
                 method:'GET',
-                url:"https://api.powerbi.com/beta/myorg/dashboards/"+IngredientService.getDashId()+"/tiles",
+                url:"https://api.powerbi.com/beta/myorg/dashboards/"+YourService.getDashId()+"/tiles",
                 withCredentials:true,
                 headers:{
-                    Authorization: 'Bearer ' +IngredientService.getAzureADToken()
+                    Authorization: 'Bearer ' +YourService.getAzureADToken()
                 }
             }
         })
       }
     }
-  }) 
-
-
-  .factory('ProductService', function($resource){
-    var odataUrl = 'http://pricingservice-obvience.azurewebsites.net/Ingredients';
-    return $resource('', {},
-    {
-      'get' : {
-          method:'GET',
-          url:odataUrl,
-          dataType:"json"
-        },
-      'update': { method: 'PATCH', params: { key: "@key" }, url: odataUrl + "('"+':key'+"')" }
-
-
-      });
-
   })
 
-  .factory('IngredientService', function() {
+
+.factory('YourService', function() {
     var searchResults=[];
     var ad_access_token='';
     var dashId='';
     return {
 
       getSearchResults: function() {
-        console.log("in services IngredientService");
+        console.log("in services");
         return searchResults;
       },
       setSearchResults:function(value){
@@ -80,9 +62,10 @@ angular.module('pricingdemo.services', [])
 
 
     }
-
-
   })
+
+
+
 
 
   .directive('iframeOnload', [function(){
@@ -115,8 +98,3 @@ angular.module('pricingdemo.services', [])
         }
     }
 });
-
-
-
-
-  

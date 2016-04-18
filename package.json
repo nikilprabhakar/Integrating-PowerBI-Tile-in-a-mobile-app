@@ -1,7 +1,7 @@
 {
   "name": "PowerBI App Demo",
   "version": "1.0.0",
-  "description": "powerBiApp: Integrating powerBI Tiles in a mobile app",
+  "description": "PowerBIDemo: Integrating powerBI Tiles in a mobile app",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
